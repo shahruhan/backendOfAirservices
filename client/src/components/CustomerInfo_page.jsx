@@ -5,6 +5,8 @@ import Swal from 'sweetalert2'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const serverUrl = 'http://localhost:5000';
  
 const CustomerInfo_page = () => {
 
@@ -17,7 +19,7 @@ const CustomerInfo_page = () => {
     const callCustomerInfoPage = async () =>{
         try{
 
-            const res = await fetch('http://localhost:5000/getdata', {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -44,7 +46,7 @@ const CustomerInfo_page = () => {
         
         try{
 
-            const response = await fetch('http://localhost:5000/customerInfo', {
+            const response = await fetch(`${serverUrl}/customerInfo`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -297,7 +299,7 @@ const deleteCustomer = async (id) => {
     // alert('clicked')
     try{
             
-        const res = await fetch(`http://localhost:5000/delete_Customer/`+id, {
+        const res = await fetch(`${serverUrl}/delete_Customer/`+id, {
             method: "GET",
             headers: {
                 Accept: "application/json",

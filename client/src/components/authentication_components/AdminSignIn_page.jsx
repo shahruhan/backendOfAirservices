@@ -7,7 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { UserContext } from '../../Router';
- 
+
+const serverUrl = 'http://localhost:5000';
+
 const AdminSignIn_page = () => {
 
 	const {state, dispatch} = useContext(UserContext);
@@ -25,7 +27,7 @@ const AdminSignIn_page = () => {
 		const Data = event;
 		const { email, password } = Data;
 
-		const res = await fetch('http://localhost:5000/admin_Signin', {
+		const res = await fetch(`${serverUrl}/admin_Signin`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

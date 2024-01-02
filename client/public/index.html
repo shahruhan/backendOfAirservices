@@ -194,6 +194,9 @@
     <!--  Sticky js  -->
     <script src="%PUBLIC_URL%/js/sticky.js"></script>
 
+    <!-- Slim Scrollbar -->
+    <script type="text/javascript" src="%PUBLIC_URL%/js/jquery.slimscroll.min.js"></script>
+
     <!-- INTERNAL INDEX JS -->
     <script src="%PUBLIC_URL%/js/index1.js"></script>
 
@@ -288,6 +291,32 @@
                   $('.select2').select2({
                       minimumResultsForSearch: Infinity
                   });
+
+                  // Slim Scrollbar
+                  $('#usersListScroll').slimScroll({
+                        height: '300px'
+                    });
+
+                 // theme dark and white layout settings
+
+                    $('.layout-setting').on("click", function(e) {
+                        if (!(document.querySelector('body').classList.contains('dark-mode'))) {
+                            $('body').addClass('dark-mode');
+                            $('body').removeClass('light-mode');
+                            $('body').removeClass('transparent-mode');
+
+                            localStorage.setItem('sashdarkMode', true);
+                            localStorage.removeItem('sashlightMode');
+                            localStorage.removeItem('sashtransparentMode');
+                        } else {
+                            $('body').removeClass('dark-mode');
+                            $('body').addClass('light-mode');
+
+                            localStorage.setItem('sashlightMode', true);
+                            localStorage.removeItem('sashtransparentMode');
+                            localStorage.removeItem('sashdarkMode');
+                        }
+                    });
 
               });
       

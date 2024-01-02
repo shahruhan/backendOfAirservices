@@ -5,6 +5,8 @@ import {adminRegisterSchema} from '../../schemas';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const serverUrl = 'http://localhost:5000';
  
 const AdminRegister_page = () => {
 
@@ -21,7 +23,7 @@ const AdminRegister_page = () => {
 		const Data = event;
 		const { name, email, contact, password, conPassword } = Data;
 
-		const res = await fetch("http://localhost:5000/admin_register", {
+		const res = await fetch(`${serverUrl}/admin_register`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { UserContext } from '../../Router';
+
+const serverUrl = 'http://localhost:5000';
  
 const Logout_page = () => {
 
@@ -15,7 +17,7 @@ const Logout_page = () => {
 
     const callLogoutPage = async () =>{
         try{
-            const res = await fetch(`http://localhost:5000/logout`, {
+            const res = await fetch(`${serverUrl}/logout`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

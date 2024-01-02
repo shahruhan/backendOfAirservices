@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const serverUrl = 'http://localhost:5000';
 
 
 const UserProfile_page = () => {
@@ -25,7 +26,7 @@ const UserProfile_page = () => {
 
     const callUserPage = async () =>{
         try{
-            const res = await fetch(`http://localhost:5000/getdata`, {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -51,7 +52,7 @@ const UserProfile_page = () => {
     const callUserData = async () =>{
         try{
             
-            const res = await fetch(`http://localhost:5000/user_profile/`+id, {
+            const res = await fetch(`${serverUrl}/user_profile/`+id, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -164,7 +165,7 @@ const UserProfile_page = () => {
                                                     <h5>Biography<i className="fe fe-edit-3 text-primary mx-2"></i></h5>
                                                     <p>
                                                         {currentUserData.bioData}
-                                                        <a href="#"> Read more...</a>
+                                                        {/* <a href="#"> Read more...</a> */}
                                                     </p>
                                                 </div>
                                                 <hr/>
@@ -228,7 +229,7 @@ const UserProfile_page = () => {
                                             <div className="card-header">
                                                 <div className="card-title">Users</div>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body" id="usersListScroll">
                                                 <div className="sidebar-mini">
                                                     
                                                     {
@@ -243,7 +244,7 @@ const UserProfile_page = () => {
 
                                                                 if (_id !== id){
                                                                     return(
-                                                                        <div className="media overflow-visible mb-sm-5">
+                                                                        <div className="media overflow-visible mb-sm-5" key={userid}>
                                                                             { !profileImage ? <img alt="image" src={process.env.PUBLIC_URL+"/images/user-icon/user-icon1.png"}/> : <img alt="image" src={process.env.PUBLIC_URL+"/images/users/"+ profileImage} style={{'borderRadius': '50px'}}/> }
                                                                             <div className="media-body valign-middle mt-2">
                                                                                 <a href="#" className=" fw-semibold text-dark" style={{textTransform: "capitalize"}}>{name}
@@ -252,7 +253,7 @@ const UserProfile_page = () => {
                                                                                 <p className="text-muted mb-0">{email}</p>
                                                                             </div>
                                                                             <div className="media-body valign-middle text-end overflow-visible mt-2" style={{display: "contents"}}>
-                                                                                <NavLink to={`/user_profile/${_id}`} className={"view_button btn btn-sm "+btn[--userid]}>View</NavLink>
+                                                                                <NavLink to={`/user_profile/${_id}`} className={"view_button btn btn-sm "+ btn[Math.floor(Math.random() * 5)]}>View</NavLink>
                                                                             </div>
                                                                         </div>
                                                                     )
@@ -262,73 +263,15 @@ const UserProfile_page = () => {
                                                 
                                                         })
                                                     }
-                                                    
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <span className="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="fw-semibold text-dark">Lillian Quinn</a>
-                                                            <p className="text-muted mb-0">lilliangore</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-secondary">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <span className="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="fw-semibold text-dark">Lillian Quinn</a>
-                                                            <p className="text-muted mb-0">lilliangore</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-secondary">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <span className="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="fw-semibold text-dark">Lillian Quinn</a>
-                                                            <p className="text-muted mb-0">lilliangore</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-secondary">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <span className="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="fw-semibold text-dark">Lillian Quinn</a>
-                                                            <p className="text-muted mb-0">lilliangore</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-secondary">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <img className="avatar brround avatar-md me-3" src="images/users/2.jpg" alt="avatar-img"/>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="text-dark fw-semibold">Harry Fisher</a>
-                                                            <p className="text-muted mb-0">harryuqt</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-danger">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible mt-sm-5">
-                                                        <span className="avatar cover-image avatar-md brround me-3 bg-primary">IH</span>
-                                                        <div className="media-body valign-middle mt-2">
-                                                            <a href="#" className="fw-semibold text-dark">Irene Harris</a>
-                                                            <p className="text-muted mb-0">harris@gmail.com</p>
-                                                        </div>
-                                                        <div className="media-body valign-middle text-end overflow-visible mt-1">
-                                                            <a href="user_profile" className="btn btn-sm btn-success">View</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media overflow-visible">
+                                                                                                        
+                                                </div>
+                                            </div>
+                                            <div className="card-footer">
+                                                <div className="media overflow-visible">
                                                         <div className="media-body valign-middle text-center overflow-visible mt-1">
                                                             <NavLink to="/users_info" className="btn btn-sm btn-primary w-100" type="button">Show All</NavLink>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
                                       

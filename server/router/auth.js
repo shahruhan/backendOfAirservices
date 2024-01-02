@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const authenticate = require('../middleware/authenticate');
-const authenticateCustomer = require('../middleware/authenticateCustomer');
+// const authenticateCustomer = require('../middleware/authenticateCustomer');
 const multer = require('multer');
 const path = require('path');
 

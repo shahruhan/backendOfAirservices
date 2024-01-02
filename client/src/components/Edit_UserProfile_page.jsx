@@ -9,6 +9,8 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const serverUrl = 'http://localhost:5000';
+
 
 const Edit_UserProfile_page = () => {
 
@@ -29,7 +31,7 @@ const Edit_UserProfile_page = () => {
 
     const callEditUserPage = async () =>{
         try{
-            const res = await fetch(`http://localhost:5000/getdata`, {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -55,7 +57,7 @@ const Edit_UserProfile_page = () => {
     const callEditUser = async () =>{
         try{
             
-            const res = await fetch(`http://localhost:5000/edit_User/`+id, {
+            const res = await fetch(`${serverUrl}/edit_User/`+id, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -94,7 +96,7 @@ const Edit_UserProfile_page = () => {
         const formData = new FormData();
         formData.append('_id', _id);
         formData.append('file', file);
-        axios.post('http://localhost:5000/edit_userProfile', formData)
+        axios.post(`${serverUrl}/edit_userProfile`, formData)
         .then(res => {
             alert(res);
             if (res === 422 || !res){
@@ -144,7 +146,7 @@ const Edit_UserProfile_page = () => {
                     bioData, profileImage, date, month, year, password, conPassword
                 } = Data;
     
-            const res = await fetch("http://localhost:5000/edit_user", {
+            const res = await fetch(`${serverUrl}/edit_user`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -210,7 +212,7 @@ const Edit_UserProfile_page = () => {
                                     <div className="card-body">
                                         <div className="text-center chat-image mb-5">
                                             <div className="avatar avatar-xxl chat-profile mb-3 brround" style={{'overflow': 'hidden'}}>
-                                                { !editUserData.profileImage ? <img alt="image" class="" src={process.env.PUBLIC_URL+"/images/user-icon/user-icon1.png"}/> : <img alt="image" class="" src={process.env.PUBLIC_URL+"/images/users/"+ editUserData.profileImage}/> }
+                                                { !editUserData.profileImage ? <img alt="image" className="" src={process.env.PUBLIC_URL+"/images/user-icon/user-icon1.png"}/> : <img alt="image" className="" src={process.env.PUBLIC_URL+"/images/users/"+ editUserData.profileImage}/> }
                                             </div>
                                             <div className="main-chat-msg-name">
                                                 <a href="profile.html">
@@ -706,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const deleteUser = async (id) => {
     try{
             
-        const res = await fetch(`http://localhost:5000/delete_User/`+id, {
+        const res = await fetch(`${serverUrl}/delete_User/`+id, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -757,7 +759,7 @@ const deleteUser = async (id) => {
     const userStatus = async (id) => {
         try{
                 
-            const res = await fetch(`http://localhost:5000/user_status/`+id, {
+            const res = await fetch(`${serverUrl}/user_status/`+id, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

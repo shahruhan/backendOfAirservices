@@ -4,9 +4,14 @@ import { Formik, Field, Form } from "formik";
 import {addUserSchema} from '../schemas';
 import $ from 'jquery';
 import axios from 'axios';
+// dotenv.config({path: './config.env'});
+// const dotenv = require('dotenv');
+// dotenv.config({path: './.env.local'});
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const serverUrl = 'http://localhost:5000';
 
 const Add_UserProfile_page = () => {
 
@@ -21,8 +26,9 @@ const Add_UserProfile_page = () => {
 
 
     const callAddUserPage = async () =>{
+        
         try{
-            const res = await fetch(`http://localhost:5000/getdata`, {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -41,7 +47,7 @@ const Add_UserProfile_page = () => {
 
         } catch(err) {
             window.alert(err);
-            history("/admin_Signin");
+            history("/admin");
         }
     }
     
@@ -56,7 +62,7 @@ const Add_UserProfile_page = () => {
         const formData = new FormData();
         formData.append('_id', _id);
         formData.append('file', file);
-        axios.post('http://localhost:5000/upload', formData)
+        axios.post(`${serverUrl}/upload`, formData)
         .then(res => {
             if (res === 422 || !res){
                 setUserProfileData(res)
@@ -101,7 +107,7 @@ const Add_UserProfile_page = () => {
                 bioData, date, month, year, password, conPassword
             } = Data;
 
-		const res = await fetch("http://localhost:5000/add_user", {
+		const res = await fetch(`${serverUrl}/add_user`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

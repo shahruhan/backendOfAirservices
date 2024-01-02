@@ -31,7 +31,7 @@ const Header = () => {
                             <li className="side-menu-label1">Customers</li>
                             <li><a href={process.env.PUBLIC_URL+'/customer_info'} className="slide-item">Customers Information</a></li>
                             <li><a href={process.env.PUBLIC_URL+'/add_customer'} className="slide-item">Add Customer</a></li>
-                            <li><a href={process.env.PUBLIC_URL+'/customer_status'} className="slide-item">Customer Status</a></li>
+                            {/* <li><a href={process.env.PUBLIC_URL+'/customer_status'} className="slide-item">Customer Status</a></li> */}
                         </ul>
                     </li>
                     <li className={!isExpanded2 ? "slide" : "slide is-expanded"} onClick={()=> setIsExpanded2(!isExpanded2)}>
@@ -72,7 +72,7 @@ const Header = () => {
                             <li className="side-menu-label1">Customers</li>
                             <li><a href={process.env.PUBLIC_URL+'/customer_info'} className="slide-item">Customers Information</a></li>
                             <li><a href={process.env.PUBLIC_URL+'/add_customer'} className="slide-item">Add Customer</a></li>
-                            <li><a href={process.env.PUBLIC_URL+'/customer_status'} className="slide-item">Customer Status</a></li>
+                            {/* <li><a href={process.env.PUBLIC_URL+'/customer_status'} className="slide-item">Customer Status</a></li> */}
                         </ul>
                     </li>
                     <li className={!isExpanded2 ? "slide" : "slide is-expanded"} onClick={()=> setIsExpanded2(!isExpanded2)}>

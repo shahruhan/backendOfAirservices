@@ -5,6 +5,8 @@ import Swal from 'sweetalert2'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const serverUrl = 'http://localhost:5000';
  
 const UsersInfo_page = () => {
 
@@ -17,7 +19,7 @@ const UsersInfo_page = () => {
     const callUserInfoPage = async () =>{
         try{
 
-            const res = await fetch('http://localhost:5000/getdata', {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -46,7 +48,7 @@ const UsersInfo_page = () => {
         
         try{
 
-            const response = await fetch('http://localhost:5000/userInfo', {
+            const response = await fetch(`${serverUrl}/userInfo`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -143,14 +145,14 @@ const UsersInfo_page = () => {
                                                             } = currentData;
 
                                                         id = id+1;
-                                                        console.log(bioData);
+                                                        // console.log(bioData);
                                                 
                                                         if (_id !== currentAdminId){
                                                         return(
                                                         <tr key={id}>
                                                                 <td>{id}</td>
                                                                 <td className="align-middle text-center">
-                                                                    { !profileImage ? <img alt="image" class="avatar-md br-7" src={process.env.PUBLIC_URL+"/images/user-icon/user-icon1.png"}/> : <img alt="image" class="avatar avatar-md" src={process.env.PUBLIC_URL+"/images/users/"+ profileImage} style={{'borderRadius': '50px'}}/> }                                                                              
+                                                                    { !profileImage ? <img alt="image" className="avatar-md br-7" src={process.env.PUBLIC_URL+"/images/user-icon/user-icon1.png"}/> : <img alt="image" className="avatar avatar-md" src={process.env.PUBLIC_URL+"/images/users/"+ profileImage} style={{'borderRadius': '50px'}}/> }                                                                              
                                                                 </td>
                                                                 <td style={{'textTransform': 'capitalize'}}>{name}
                                                                     <span className="text-muted ms-1" style={{textTransform: "capitalize", background: 'yellow'}}>{users}</span>
@@ -240,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const deleteUser = async (id) => {
 try{
         
-    const res = await fetch(`http://localhost:5000/delete_User/`+id, {
+    const res = await fetch(`${serverUrl}/delete_User/`+id, {
         method: "GET",
         headers: {
             Accept: "application/json",

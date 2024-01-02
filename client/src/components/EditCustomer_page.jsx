@@ -7,6 +7,8 @@ import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const serverUrl = 'http://localhost:5000';
+
 
 
 const EditCustomer_page = () => {
@@ -26,7 +28,7 @@ const EditCustomer_page = () => {
 
     const callAddCustomerPage = async () =>{
         try{
-            const res = await fetch(`http://localhost:5000/getdata`, {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -53,7 +55,7 @@ const EditCustomer_page = () => {
     const callEditCustomerPage = async () =>{
         try{
             
-            const res = await fetch(`http://localhost:5000/edit_Customer/`+id, {
+            const res = await fetch(`${serverUrl}/edit_Customer/`+id, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -94,7 +96,7 @@ const EditCustomer_page = () => {
                 c_Visa , c_Vaccine, c_Ticket, c_Voucher, c_transaction, c_blanceAmount, c_receivingDate, c_travelDate
             } = Data;
 
-		const res = await fetch("http://localhost:5000/edit_customer", {
+		const res = await fetch(`${serverUrl}/edit_customer`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

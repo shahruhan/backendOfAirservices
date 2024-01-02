@@ -206,6 +206,7 @@
     // ______________ SWITCHER-toggle ______________//
 
 	$('.layout-setting').on("click", function(e) {
+        debugger;
 		if (!(document.querySelector('body').classList.contains('dark-mode'))) {
 			$('body').addClass('dark-mode');
 			$('body').removeClass('light-mode');

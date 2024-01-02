@@ -7,6 +7,8 @@ import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const serverUrl = 'http://localhost:5000';
+
 const AddCustomer_page = () => {
 
     const history = useNavigate();
@@ -16,7 +18,7 @@ const AddCustomer_page = () => {
 
     const callAddCustomerPage = async () =>{
         try{
-            const res = await fetch(`http://localhost:5000/getdata`, {
+            const res = await fetch(`${serverUrl}/getdata`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -51,7 +53,7 @@ const AddCustomer_page = () => {
                 c_Visa , c_Vaccine, c_Ticket, c_Voucher, c_transaction, c_blanceAmount, c_receivingDate, c_travelDate
             } = Data;
 
-		const res = await fetch("http://localhost:5000/add_customer", {
+		const res = await fetch(`${serverUrl}/add_customer`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
