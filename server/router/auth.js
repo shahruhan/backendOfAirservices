@@ -20,6 +20,9 @@ const fs = require('fs/promises');
 const unlinkProm = promisify(fs.unlink);
 
 
+router.get('/', (req, res) =>{
+  res.send("Hello");
+});
 
  
 //------- Admin Registration Module-----------

@@ -95,7 +95,7 @@ const AdminSignIn_page = () => {
 							<div className="col-lg-6 col-md-12 col-login" style={{'display':'flex', 'flexDirection': 'column', 'justifyContent': 'space-around'}}>
 								<div className="m-auto">
 									<img src="images/brand/logo-white.png" className="header-brand-img" alt=""/>
-									<h3 className='text-white mt-2'>Babul Madina Air Services</h3>
+									<h3 className='text-white mt-2'>admin</h3>
 								</div>
 							</div>
 

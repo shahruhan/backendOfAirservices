@@ -15,7 +15,7 @@ const UserSignIn_page = () => {
 							<div class="col-lg-6 col-md-12 col-login" style={{'display':'flex', 'flexDirection': 'column', 'justifyContent': 'space-around'}}>
 								<div class="m-auto">
 									<img src="images/brand/logo-white.png" class="header-brand-img" alt=""/>
-									<h3 className='text-white mt-2'>Babul Madina Air Services</h3>
+									<h3 className='text-white mt-2'>user</h3>
 								</div>
 							</div>
 
