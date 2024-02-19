@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 app.use(cors(
   {
-    origin: ['https://airservices.vercel.app', 'http://localhost:3000'],
+    origin: ['http://localhost:3000'],
     methods: ['POST', 'GET'],
     credentials: true
   }
