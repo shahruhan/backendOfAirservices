@@ -21,7 +21,7 @@ app.use(cors(
 ));
 
 
-router.get('/', (req, res) =>{
+app.get('/', (req, res) =>{
   res.send("Hello");
 });
 
