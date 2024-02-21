@@ -14,12 +14,11 @@ app.use(cookieParser());
 
 app.use(cors(
   {
-    origin: ['https://airservices-vercel-frontend.vercel.app', 'http://localhost:3000'],
-    methods: ['POST', 'GET'],
-    headers: ["Content-Type"],
+    origin: "https://airservices-vercel-frontend.vercel.app",
     credentials: true
   }
 ));
+app.options('*', cors());
 
 
 app.get('/', (req, res) =>{
