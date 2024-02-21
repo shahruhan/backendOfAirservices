@@ -16,6 +16,7 @@ app.use(cors(
   {
     origin: ['https://airservices-vercel-frontend.vercel.app', 'http://localhost:3000'],
     methods: ['POST', 'GET'],
+    headers: ["Content-Type"],
     credentials: true
   }
 ));
