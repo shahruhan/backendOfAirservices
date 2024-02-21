@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 // for atlas connection
 
-const DB = 'mongodb+srv://shahruhan:ruhan0077@cluster0.ias3lfx.mongodb.net/airService?retryWrites=true&w=majority';
+const DB = 'mongodb+srv://shahruhan:ruhi2324@cluster0.ias3lfx.mongodb.net/airService?retryWrites=true&w=majority';
 
 // const DB = process.env.DATABASE;
 
