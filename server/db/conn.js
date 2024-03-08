@@ -2,7 +2,7 @@
 // var kennel = require("../mongoose/src/model.js");
 const mongoose = require("mongoose");
 
-// for atlas connection"
+// for atlas connection online with password"
 
 const DB = 'mongodb+srv://shahruhan:ruhi2324@cluster0.ias3lfx.mongodb.net/airService?retryWrites=true&w=majority';
 
