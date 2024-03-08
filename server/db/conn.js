@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 
 // for atlas connection online with password"
 
-const DB = 'mongodb+srv://shahruhan:ruhi0077@cluster0.ias3lfx.mongodb.net/airService?retryWrites=true&w=majority';
-
+// const DB = 'mongodb+srv://shahruhan:ruhi0077@cluster0.ias3lfx.mongodb.net/airService?retryWrites=true&w=majority';
+const DB = `mongodb+srv://shahruhan:ruhi0077@cluster0.ias3lfx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 // const DB = process.env.DATABASE;
 
 mongoose.connect(DB, { useUnifiedTopology: true, useNewUrlParser: true });
