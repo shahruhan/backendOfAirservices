@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 app.use(cors(
   {
-    origin: ["https://airservices-vercel-frontend.vercel.app"],
+    origin: ["https://babul-madina.vercel.app"],
     methods: ['POST', 'GET'],
     credentials: true
   }
