@@ -20,7 +20,9 @@ const Authenticate = async (req, res, next) => {
 
         // ____________________________Customer Data_____________________________
 
-        const rootCustomer = await Customer.find();
+        const rootCustomer = await Customer.find().sort({
+            "date": -1
+        });;
 
         if(!rootCustomer) {throw new Error('Customer not found')}
 
