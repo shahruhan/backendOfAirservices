@@ -223,7 +223,9 @@ router.get('/delete_Customer/:id', async (req, res) =>{
 
 // User Info table Authenticate
 router.get('/userInfo', authenticate, async (req, res) =>{
-  const  userData = await User.find();
+  const  userData = await User.find().sort({
+    "currentDate": -1
+});
   res.send(userData);
 });
 // ____________________________________________________________
