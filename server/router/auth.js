@@ -127,7 +127,7 @@ router.post('/add_customer', async (req, res) =>{
   }else{
 
   try {
-    const customerExist = await Customer.findOne({ c_name: c_name});
+    const customerExist = await Customer.findOne({ c_name: c_name, c_contact: c_contact});
       if(customerExist){
         return res.status(423).json(423);
       }
