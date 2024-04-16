@@ -231,7 +231,7 @@ router.get('/userInfo', authenticate, async (req, res) =>{
 // ____________________________________________________________
 const storage = multer.diskStorage({
   destination : (req, file, cd) => {
-    cd(null, '../client/public/images/users')
+    cd(null, 'client/public/images/users')
   },
   filename : (req, file, cd) =>{
     cd(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
