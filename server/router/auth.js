@@ -296,7 +296,7 @@ router.post('/upload', upload.single('file'), async (req, res) =>{
   
   const profileImage = req.file.filename;
 
-  const directory = "../client/public/images/users";
+  const directory = "client/public/images/users";
   const files = await fs.readdir(directory);
   
 
