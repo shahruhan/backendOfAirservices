@@ -231,14 +231,14 @@ router.get('/userInfo', authenticate, async (req, res) =>{
 // ____________________________________________________________
 const storage = multer.diskStorage({
   destination : (req, file, cd) => {
-    cd(null, '/images/users')
+    cd(null, 'https://babul-madina.vercel.app/images/users')
   },
   filename : (req, file, cd) =>{
     cd(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
   }
 })
 
-console.log( '/images/users' );
+console.log( 'https://babul-madina.vercel.app/images/users' );
 
 const upload = multer({
   storage : storage
@@ -298,7 +298,7 @@ router.post('/upload', upload.single('file'), async (req, res) =>{
   
   const profileImage = req.file.filename;
 
-  const directory = "/images/users";
+  const directory = "https://babul-madina.vercel.app/images/users";
   const files = await fs.readdir(directory);
   
 
@@ -420,7 +420,7 @@ router.post('/edit_userProfile', upload.single('file'), async (req, res) =>{
   
   const profileImage = req.file.filename;
 
-  const directory = "/images/users";
+  const directory = "https://babul-madina.vercel.app/images/users";
   const files = await fs.readdir(directory);
   
 
