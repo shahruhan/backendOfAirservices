@@ -238,6 +238,8 @@ const storage = multer.diskStorage({
   }
 })
 
+console.log( __dirname + 'public/images/users' );
+
 const upload = multer({
   storage : storage
 })
