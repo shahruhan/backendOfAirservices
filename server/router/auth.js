@@ -231,7 +231,7 @@ router.get('/userInfo', authenticate, async (req, res) =>{
 // ____________________________________________________________
 const storage = multer.diskStorage({
   destination : (req, file, cd) => {
-    const destinationPath = '../images/users'; // specify your destination path
+    const destinationPath = '../users'; // specify your destination path
     console.log('Destination Path:', destinationPath); // log the destination path
     cb(null, destinationPath);
   },
