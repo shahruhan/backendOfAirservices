@@ -77,7 +77,7 @@ router.post('/admin_Signin', async (req, res) => {
         res.cookie('jwtoken' ,token, {
           expires: new Date(Date.now() + 25892000000),
           httpOnly: true,
-          sameSite: "strict",
+          sameSite: "none",
           secure:  true,
         });
         
@@ -238,7 +238,7 @@ const storage = multer.diskStorage({
   }
 })
 
-const destinationPath = __dirname + '../users'; // specify your destination path
+const destinationPath = __dirname ; // specify your destination path
     console.log('Destination Path:', destinationPath);
 
 const upload = multer({
