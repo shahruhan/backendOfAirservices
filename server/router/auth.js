@@ -238,11 +238,12 @@ const storage = multer.diskStorage({
   }
 })
 
-console.log( diskStorage() );
-
 const upload = multer({
   storage : storage
 })
+
+
+console.log( upload );
 
 // Add user data
 router.post('/add_user',  async (req, res) =>{
