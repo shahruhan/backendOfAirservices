@@ -240,7 +240,7 @@ const storage = multer.diskStorage({
   }
 })
 
-const destinationPath = __dirname '../users'; // specify your destination path
+const destinationPath = __dirname + '../users'; // specify your destination path
     console.log('Destination Path:', destinationPath);
 
 const upload = multer({
