@@ -238,7 +238,7 @@ const storage = multer.diskStorage({
   }
 })
 
-console.log( storage );
+console.log( storage.destination );
 
 const upload = multer({
   storage : storage
