@@ -245,7 +245,7 @@ const upload = multer({
 })
 
 
-// console.log( upload );
+console.log( '../users' );
 
 // Add user data
 router.post('/add_user',  async (req, res) =>{
