@@ -413,7 +413,7 @@ router.post('/edit_user', async (req, res) =>{
 });
 
 //update profile image in Edit User
-router.post('/edit_userProfile', upload.single('file'), async (req, res) =>{
+router.get('/edit_userProfile', upload.single('file'), async (req, res) =>{
   const file = req.file;
 
   if (!file){
@@ -424,7 +424,7 @@ router.post('/edit_userProfile', upload.single('file'), async (req, res) =>{
   
   const profileImage = req.file.filename;
 
-  const directory =  __dirname + '../images/users';
+  const directory =  '../client/public/images/users';
   const files = await fs.readdir(directory);
   
 
