@@ -292,7 +292,7 @@ router.post('/add_user',  async (req, res) =>{
 router.post('/upload', upload.single('file'), async (req, res) =>{
 
   const file = req.file;
-// console.log(file);
+console.log(file);
 
   if (!file){
     return res.status(421).json(421);
