@@ -416,6 +416,8 @@ router.post('/edit_user', async (req, res) =>{
 router.get('/edit_userProfile', upload.single('file'), async (req, res) =>{
   const file = req.file;
 
+  console.log(file);
+
   if (!file){
     return res.send('no file');
   }
