@@ -231,14 +231,14 @@ router.get('/userInfo', authenticate, async (req, res) =>{
 // ____________________________________________________________
 const storage = multer.diskStorage({
   destination : (req, file, cd) => {
-    cd(null, __dirname + '/images/users')
+    cd(null, '../client/public/images/users')
   },
   filename : (req, file, cd) =>{
     cd(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
   }
 })
 
-const destinationPath = __dirname + '/images/users' ;
+const destinationPath = '../client/public/images/users' ;
     console.log(destinationPath);
 
 const upload = multer({
@@ -246,7 +246,7 @@ const upload = multer({
 })
 
 
-console.log( '../users' );
+// console.log( '../users' );
 
 // Add user data
 router.post('/add_user',  async (req, res) =>{
@@ -302,7 +302,7 @@ router.post('/upload', upload.single('file'), async (req, res) =>{
   
   const profileImage = req.file.filename;
 
-  const directory =  __dirname + '/images/users';
+  const directory =  '../client/public/images/users';
   const files = await fs.readdir(directory);
   
 
