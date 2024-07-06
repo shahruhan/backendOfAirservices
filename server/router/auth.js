@@ -36,6 +36,7 @@ router.post('/admin_register', async (req, res) =>{
   }
 
   try {
+    res.send(email);
     const userExist = await User.findOne({ email: email});
       if(userExist){
         return res.status(422).json(422);
